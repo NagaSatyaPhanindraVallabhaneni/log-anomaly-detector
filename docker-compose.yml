@@ -1,0 +1,10 @@
+services:
+  log-anomaly-detector:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist the trained model across restarts.
+      - ./models:/app/models
+    environment:
+      - PYTHONPATH=/app/src
